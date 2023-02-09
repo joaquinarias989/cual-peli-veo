@@ -1,7 +1,9 @@
 import type { SearchPreferences } from '../types/SearchPreferences.type';
 
 const COHERE_API_KEY = import.meta.env['PUBLIC_COHERE_API_KEY'];
-const COHERE_API_GENERATE_URL = 'https://api.cohere.ai/generate';
+const COHERE_API_GENERATE_URL = import.meta.env[
+  'PUBLIC_COHERE_API_GENERATE_URL'
+];
 
 export async function generateRecommendedMovies(
   preferences: SearchPreferences
