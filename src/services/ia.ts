@@ -45,6 +45,9 @@ Recommendations:`,
   };
 
   const response = await sendRequestCohere(data);
+  if (response === null) {
+    return null;
+  }
   const { text } = response.generations[0];
   const cleanText = text.replace(/--/g, '');
   const recommendations = cleanText
@@ -63,5 +66,8 @@ const sendRequestCohere = async (data: any) => {
     },
     body: JSON.stringify(data),
   });
+  if (response.status == 401) {
+    return null;
+  }
   return response.json();
 };
