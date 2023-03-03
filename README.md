@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="cual-peli-veo.vercel.app/">
+<a href="https://cual-peli-veo.vercel.app/">
 <img src="./public/banner.png" />
 </a>
 
