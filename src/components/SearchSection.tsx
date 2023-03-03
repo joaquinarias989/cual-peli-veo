@@ -1,9 +1,23 @@
+import 'react-toastify/dist/ReactToastify.min.css';
 import { useState } from 'react';
 import { generateRecommendedMovies } from '../services/ia';
 import { getMovieByName } from '../services/movies';
-import type { Movie } from '../types/Movie.type';
 import { DECADES } from '../types/SearchPreferences.type';
 import CardMovie from './CardMovie';
+import { ToastContainer, toast } from 'react-toastify';
+import type { Movie } from '../types/Movie.type';
+import type { ToastOptions } from 'react-toastify';
+
+const toastErrorOptions: ToastOptions = {
+  position: 'bottom-center',
+  autoClose: 5000,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  theme: 'dark',
+  progress: 0,
+};
 
 export default function SearchSection() {
   const [movies, setMovies] = useState<Array<Movie>>([]);
@@ -20,11 +34,18 @@ export default function SearchSection() {
       decade,
       referenceMovie,
     });
-    resp.map((movie: string) =>
-      getMovieByName(movie).then((movie) =>
-        setMovies((movies) => [...movies, movie])
-      )
-    );
+    if (resp === null) {
+      toast.error(
+        'El servicio de recomendación no está disponible en este momento, disculpe.',
+        toastErrorOptions
+      );
+    } else {
+      resp.map((movie: string) =>
+        getMovieByName(movie).then((movie) =>
+          setMovies((movies) => [...movies, movie])
+        )
+      );
+    }
 
     setLoading(false);
   };
@@ -138,7 +159,7 @@ export default function SearchSection() {
                       fill='currentFill'
                     />
                   </svg>
-                  <span className='sr-only'>Loading...</span>
+                  <span className='sr-only'>Cargando...</span>
                 </div>
               </>
             ) : (
@@ -152,6 +173,16 @@ export default function SearchSection() {
           <CardMovie key={movie.id} movie={movie} />
         ))}
       </div>
+      <ToastContainer
+        position='bottom-center'
+        autoClose={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme='dark'
+      />
     </>
   );
 }

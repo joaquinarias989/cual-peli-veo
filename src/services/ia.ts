@@ -7,7 +7,10 @@ const COHERE_API_GENERATE_URL = import.meta.env[
 
 export async function generateRecommendedMovies(
   preferences: SearchPreferences
-): Promise<Array<string>> {
+) {
+  if (COHERE_API_KEY === undefined) {
+    return null;
+  }
   const data = {
     model: 'xlarge',
     prompt: `This is a movie recommender, to which you indicate a preferred decade in which the movie was released, a reference movie, and it returns another three movies that you might like based on your preferences. Recommendations will not be repeated, and the reference movie will not be included in the recommendations.
