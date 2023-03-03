@@ -1,54 +1,73 @@
-# Astro Starter Kit: Basics
+<div align="center">
 
+<a href="cual-peli-veo.vercel.app/">
+<img src="./public/banner.png" />
+</a>
+
+<p></p>
+
+![GitHub stars](https://img.shields.io/github/stars/joaquinarias989/cual-peli-veo)
+![GitHub issues](https://img.shields.io/github/issues/joaquinarias989/cual-peli-veo)
+
+</div>
+
+## 🛑 Advertisement
+
+This application uses the artificial intelligence API of COHERE, it is paid, so the recommendation service does not work until an API KEY is entered.
+
+## 👨‍🚀 Getting Started
+
+> 🚧 You will need [Nodejs +16 (LTS recommended)](https://nodejs.org/en/) installed.
+
+1. Fork this project:
+
+- [Click here](https://github.com/joaquinarias989/cual-peli-veo/fork).
+
+2. Clone the repository:
+
+```bash
+git clone git@github.com:YOU_USER/cual-peli-veo.git
 ```
-npm create astro@latest -- --template basics
+
+3. Install dependencies:
+
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn install
+# or
+ultra install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+4. Create a **.env** file with the following content:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+## Cohere AI
+PUBLIC_COHERE_API_KEY=
+PUBLIC_COHERE_API_GENERATE_URL=https://api.cohere.ai/generate
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+## Movie DB API
+PUBLIC_API_KEY=
+PUBLIC_API_URI_SEARCH=https://api.themoviedb.org/3/search
+PUBLIC_API_URI_IMGS=https://image.tmdb.org/t/p/w1280
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 🔑 How to get environment variables:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**COHERE:**
 
-Any static assets, like images, can be placed in the `public/` directory.
+- [API KEYs](https://dashboard.cohere.ai/api-keys).
 
-## 🧞 Commands
+**THE MOVIE DB:**
 
-All commands are run from the root of the project, from a terminal:
+- [API KEY Docs](https://www.themoviedb.org/documentation/api).
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+5. Ready 🥳
 
-## 👀 Want to learn more?
+<p></p>
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🎉 Deploy on Vercel
+
+- ✅ [https://cual-peli-veo.vercel.app/](https://cual-peli-veo.vercel.app/).
